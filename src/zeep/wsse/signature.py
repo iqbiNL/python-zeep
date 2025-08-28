@@ -395,6 +395,6 @@ class BinarySignatureWithPublicKeyVerify(Signature):
         return envelope, headers
 
     def verify(self, envelope):
-        # key = _make_verify_key(self.public_cert_data)
-        # _verify_envelope_with_key(envelope, key)
+        key = _make_verify_key(self.public_cert_data)
+        _verify_envelope_with_key(envelope, key)
         return envelope
