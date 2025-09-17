@@ -94,8 +94,9 @@ class Transport:
                 log_message,
             )
 
-        return response
-
+        return response, message, headers
+        # return response
+    
     def post_xml(self, address, envelope, headers):
         """Post the envelope xml element to the given address with the headers.
 
