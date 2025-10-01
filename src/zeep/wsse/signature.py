@@ -87,8 +87,8 @@ class Signature(MemorySignature):
         digest_method=None,
     ):
         super().__init__(
-            _read_file(key_file),
-            _read_file(certfile),
+            key_file,
+            certfile,
             password,
             signature_method,
             digest_method,
@@ -385,7 +385,7 @@ class BinarySignatureWithPublicKeyVerify(Signature):
                 digest_method,
             )
         
-        self.public_cert_data = _read_file(public_certfile)
+        self.public_cert_data = public_certfile
 
     def apply(self, envelope, headers):
         key = _make_sign_key(self.key_data, self.cert_data, self.password)
